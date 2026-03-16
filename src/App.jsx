@@ -1,5 +1,8 @@
 import './App.css'
 import Button from './components/Button'
+import BannerCarousel  from './components/BannerCarousel.jsx'
+import Footer  from './components/Footer.jsx'
+
 
 function App() {
   return (
@@ -16,6 +19,8 @@ function App() {
           <Button>Contato</Button>
         </div>
       </nav>
+      <BannerCarousel />
+      <Footer />
     
        </>
   )
