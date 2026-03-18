@@ -1,8 +1,16 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
+@theme {
+  --font-serif: 'Playfair Display', serif;
+
+  --color-brand-dark: #12293d;
+  --color-brand-navy: #1e3d5c;
+  --color-brand-blue: #1a4a6b;
+}
+
 body {
-  background-color: #1e3d5c;
+  background-color: var(--color-brand-navy);
   margin: 0;
 }
 
