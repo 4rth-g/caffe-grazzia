@@ -4,7 +4,7 @@ const Contato = () => {
       <h2 className="text-dourado text-3xl font-bold mb-6 font-serif">Contato</h2>
       <p className="text-creme opacity-75 text-lg leading-relaxed mb-4 font-serif">
         Para entrar em contato conosco, envie um e-mail para caffe@caffegrazzia.com
-        ou ligue para (11) 1234-5678. Estamos disponíveis de segunda a sexta, das 8h às 18h.
+        ou ligue para (XX) XXXX-XXXX. Estamos disponíveis de segunda a sexta, das 8h às 18h.
       </p>
       <p className="text-creme opacity-75 text-lg leading-relaxed font-serif">
         Você também pode nos encontrar nas redes sociais:
