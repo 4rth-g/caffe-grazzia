@@ -9,17 +9,17 @@ const slides = [
   {
     title: 'Bem-vindo ao Caffè Grazzia',
     subtitle: 'Onde a paixão pelo café se encontra com a arte de criar momentos inesquecíveis.',
-    image: images['pexels-marta-dzedyshko-1042863-2775834.jpg'],
+    image: images['stocksnap-croissant-923673.jpg'],
   },
   {
     title: 'Experimente Nossos Blends',
     subtitle: 'Grãos selecionados dos melhores terroirs do mundo, torrados com cuidado artesanal.',
-    image: images['pexels-pixabay-236838.jpg'],
+    image: images['danganhfoto-coffee-5567269_1920.jpg'],
   },
   {
     title: 'Reserve Seu Momento',
     subtitle: 'Um ambiente acolhedor para reuniões, trabalho ou simplesmente relaxar com uma boa xícara.',
-    image: images['pexels-pixabay-2061.jpg'],
+    image: images['stocksnap-man-2557408.jpg'],
   },
 ]
 

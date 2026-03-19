@@ -18,7 +18,7 @@ const Footer = () => {
         <p className="text-sm text-creme/80">Aracaju-SE</p>
       </div>
       <p className="w-full text-center text-xs tracking-widest text-creme/40 pt-4 border-t border-creme/10">
-        © 2025 Caffè Grazzia. Todos os direitos reservados.
+      © 2026 Caffè Grazzia · Projeto acadêmico desenvolvido por Arthur Grazzia
       </p>
     </footer>
   )
