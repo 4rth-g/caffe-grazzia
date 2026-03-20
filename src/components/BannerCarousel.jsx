@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const imageModules = import.meta.glob('../assets/*.{jpg,jpeg,png}', { eager: true })
 const images = Object.fromEntries(
@@ -42,10 +43,19 @@ const BannerCarousel = () => {
 
       <button className="carousel-btn carousel-btn-left" onClick={prev}>&#8249;</button>
 
-      <div className="carousel-content">
-        <h2>{slides[current].title}</h2>
-        <p>{slides[current].subtitle}</p>
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          className="carousel-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+        >
+          <h2>{slides[current].title}</h2>
+          <p>{slides[current].subtitle}</p>
+        </motion.div>
+      </AnimatePresence>
 
       <button className="carousel-btn carousel-btn-right" onClick={next}>&#8250;</button>
 

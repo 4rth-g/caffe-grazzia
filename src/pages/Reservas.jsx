@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { motion } from 'framer-motion'
+
 const Reservas = () => {
-  const [formData, setFormData] = useState({
+  const [, setFormData] = useState({
     nome: "",
     email: "",
     telefone: "",
@@ -19,12 +21,16 @@ const Reservas = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Reserva:', formData)
-    // Handle form submission logic here
+    // TODO: integrar com backend para envio de reservas
   }
 
   return (
-    <main className="px-8 py-12 max-w-3xl mx-auto">
+    <motion.main
+      className="px-8 py-12 max-w-3xl mx-auto"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <h2 className="text-creme text-3xl font-bold mb-6 font-serif">Reservas</h2>
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <input type="text" name="nome" placeholder="Nome" className="w-full mb-4 px-4 py-2 bg-creme border border-creme rounded font-serif" onChange={handleChange} />
@@ -35,12 +41,11 @@ const Reservas = () => {
         <input type="time" name="hora" className="w-full mb-4 px-4 py-2 text-texto-form bg-creme border border-creme rounded font-serif" onChange={handleChange} />
         <button type="submit" className="bg-dourado text-creme px-6 py-2 rounded font-serif">Reservar</button>
       </form>
-      
+
       <p className="text-creme opacity-75 text-lg leading-relaxed mt-8 font-serif">
-        
         Para reservar uma mesa, por favor entre em contato conosco pelo telefone (XX) XXXX-XXXX ou pelo e-mail caffe@caffegrazzia.com
       </p>
-    </main>
+    </motion.main>
   )
 }
-export default Reservas                     
+export default Reservas

@@ -1,6 +1,13 @@
+import { motion } from 'framer-motion'
+
 const Sobre = () => {
   return (
-    <main className="px-8 py-12 max-w-3xl mx-auto">
+    <motion.main
+      className="px-8 py-12 max-w-3xl mx-auto"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <h2 className="text-dourado text-3xl font-bold mb-6 font-serif">Sobre o Caffè Grazzia</h2>
       <p className="text-creme opacity-75 text-lg leading-relaxed mb-4 font-serif">
         O Grazzia nasceu da mistura que a família carrega no sobrenome — raízes italianas 
@@ -17,7 +24,7 @@ const Sobre = () => {
         O espaço é pra quem quer uma pausa de verdade — seja pra trabalhar, conversar 
         ou simplesmente tomar um café bom sem complicação. Bem-vindo ao Grazzia.
       </p>
-    </main>
+    </motion.main>
   )
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { motion } from 'framer-motion'
 import CardapioCard from "../components/CardapioCard"
 
 export const itens = [
@@ -103,7 +104,12 @@ const Cardapio = () => {
     : itens.filter(item => item.categoria === categoriaAtiva)
 
   return (
-    <main className="px-8 py-12 max-w-5xl mx-auto">
+    <motion.main
+      className="px-8 py-12 max-w-5xl mx-auto"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <h2 className="text-creme text-3xl font-bold mb-6 font-serif">Cardápio</h2>
       <div className="flex gap-3 mb-8 flex-wrap">
         {categorias.map(cat => (
@@ -120,7 +126,12 @@ const Cardapio = () => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        initial="hidden"
+        animate="visible"
+        variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+      >
         {itensFiltrados.map(item => (
           <CardapioCard
             key={item.id}
@@ -129,8 +140,8 @@ const Cardapio = () => {
             preco={item.preco}
           />
         ))}
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   )
 }
 
