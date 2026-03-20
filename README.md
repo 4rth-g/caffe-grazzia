@@ -22,7 +22,7 @@ Site institucional de uma cafeteria, desenvolvido com React + Vite. O projeto ap
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/caffe-grazzia.git
+git clone https://github.com/4rth-g/caffe-grazzia.git
 cd caffe-grazzia
 npm install
 ```
