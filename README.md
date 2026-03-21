@@ -5,7 +5,7 @@ Site institucional de uma cafeteria, desenvolvido com React + Vite. O projeto ap
 ## Tecnologias utilizadas
 
 - [React 19](https://react.dev/)
-- [Vite 8](https://vite.dev/)
+- [Vite 7](https://vite.dev/)
 - [Tailwind CSS 4](https://tailwindcss.com/)
 - [React Router DOM 7](https://reactrouter.com/)
 - [Framer Motion](https://www.framer.com/motion/)
@@ -14,8 +14,10 @@ Site institucional de uma cafeteria, desenvolvido com React + Vite. O projeto ap
 
 ## Pré-requisitos
 
-- [Node.js](https://nodejs.org/) v20 ou superior
+- [Node.js](https://nodejs.org/) `^20.19.0` ou `>=22.12.0`
 - npm v10 ou superior
+
+> Se usar [nvm](https://github.com/nvm-sh/nvm), rode `nvm use` na raiz do projeto para usar a versão correta automaticamente.
 
 ## Instalação
 
@@ -24,6 +26,7 @@ Clone o repositório e instale as dependências:
 ```bash
 git clone https://github.com/4rth-g/caffe-grazzia.git
 cd caffe-grazzia
+nvm use        # opcional, se usar nvm
 npm install
 ```
 
