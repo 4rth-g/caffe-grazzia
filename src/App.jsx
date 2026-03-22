@@ -34,9 +34,8 @@ function App() {
         <Route path="/contato" element={<Contato />} />
         <Route path="/reservas" element={<Reservas />} />
         <Route path="/cardapio" element={<Cardapio />} />
-        <Route path="/galeria" element={<Galeria />} /> 
-
-        
+        <Route path="/galeria" element={<Galeria />} />
+        <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
     </BrowserRouter> 

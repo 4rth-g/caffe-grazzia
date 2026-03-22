@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const Imagem = ({ nome, descrição, emoji }) => {
   return (
     <motion.div
-      className="bg-fundo-escuro rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:bg-brand-light hover:scale-105 hover:shadow-xl cursor-pointer"
+      className="bg-brand-dark rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:bg-brand-light hover:scale-105 hover:shadow-xl cursor-pointer"
       variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
       transition={{ duration: 0.35 }}
     >
