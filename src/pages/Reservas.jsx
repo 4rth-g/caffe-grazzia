@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { motion } from 'framer-motion'
+import emailsjs from '@emailjs/browser'
 
 const Reservas = () => {
-  const [, setFormData] = useState({
+  const [formData, setFormData] = useState({
     nome: "",
     email: "",
     telefone: "",
@@ -10,6 +11,10 @@ const Reservas = () => {
     data: "",
     hora: ""
   })
+
+  const [honeypot, setHoneypot] = useState("")
+  const [enviado  , setEnviado] = useState(false)
+  const [erro, setErro] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -19,9 +24,39 @@ const Reservas = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: integrar com backend para envio de reservas
+    if(honeypot) return
+    try {
+      await emailsjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      setEnviado(true)
+    } catch (error) {
+      setErro(true)
+    }
+  }
+
+  if (enviado) {
+    return (
+      <motion.main
+        className="px-8 py-12 max-w-3xl mx-auto text-center"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <h2 className="text-creme text-3xl font-bold mb-6 font-serif">Reserva Enviada!</h2>
+        <p className="text-creme opacity-75 text-lg leading-relaxed mt-8 font-serif">
+          Obrigado por reservar conosco! Entraremos em contato em breve para confirmar sua reserva.
+        </p>
+        <p className="text-red-500 opacity-75 text-sm leading-relaxed mt-6 font-serif">
+          Este projeto é exclusivamente acadêmico. Não se trata de um sistema de reservas comercial.
+        </p>
+      </motion.main>
+    )
   }
 
   return (
@@ -31,8 +66,15 @@ const Reservas = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
+
       <h2 className="text-creme text-3xl font-bold mb-6 font-serif">Reservas</h2>
       <form className="flex flex-col" onSubmit={handleSubmit}>
+       <input type="text"  
+              value={honeypot} 
+              onChange={(e) => setHoneypot(e.target.value)} 
+              style={{ display: 'none' }} />
+       
+       
         <input type="text" name="nome" placeholder="Nome" className="w-full mb-4 px-4 py-2 bg-creme border border-creme rounded font-serif" onChange={handleChange} />
         <input type="email" name="email" placeholder="E-mail" className="w-full mb-4 px-4 py-2 bg-creme border border-creme rounded font-serif" onChange={handleChange} />
         <input type="tel" name="telefone" placeholder="Telefone" className="w-full mb-4 px-4 py-2 bg-creme border border-creme rounded font-serif" onChange={handleChange} />
@@ -42,8 +84,11 @@ const Reservas = () => {
         <button type="submit" className="bg-dourado text-creme px-6 py-2 rounded font-serif">Reservar</button>
       </form>
 
-      <p className="text-creme opacity-75 text-lg leading-relaxed mt-8 font-serif">
-        Para reservar uma mesa, por favor entre em contato conosco pelo telefone (XX) XXXX-XXXX ou pelo e-mail caffe@caffegrazzia.com
+      {erro && (
+        <p className="text-red-500 mt-4 font-serif">Ocorreu um erro ao enviar sua reserva. Por favor, tente novamente.</p>
+      )}
+      <p className="text-red-500 opacity-75 text-sm leading-relaxed mt-8 font-serif">
+        Este projeto é exclusivamente acadêmico. Não se trata de um sistema de reservas comercial.
       </p>
     </motion.main>
   )
